@@ -1,0 +1,58 @@
+@import "./utils";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  color: map-get($colors, night);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+  @include resetMargin;
+}
+
+button,
+input {
+  text-align: center;
+  font-size: 1rem;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+body {
+  position: relative;
+}
+
+.page-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  main {
+    flex-grow: 1;
+  }
+}

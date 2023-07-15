@@ -1,0 +1,23 @@
+@import "../../style/utils";
+
+nav {
+  height: 100%;
+
+  ul {
+    @include flexRow;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+  }
+  li {
+    height: 100%;
+    a {
+      padding: 0 1.5rem;
+      background-color: map-get($colors, rose);
+      transition: all 300ms ease-in-out;
+      &:hover {
+        background-color: lighten(map-get($colors, rose), 20%);
+      }
+    }
+  }
+}

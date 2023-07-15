@@ -1,0 +1,32 @@
+@mixin resetMargin {
+  margin: 0;
+  padding: 0;
+}
+
+$colors: (
+  ice: #fff,
+  night: #1a1b1e,
+  darkmouse: #666666,
+  lightmouse: #cccccc,
+  mouse: #999999,
+
+  sea: #0791fd,
+  rose: #d66e95,
+  mauve: #742062,
+  fire: #fdaa56,
+  blood: #fe4d4f,
+);
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin logoFont {
+  font-family: "Grandstander", cursive;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: map-get($colors, rose);
+}

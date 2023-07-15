@@ -9,6 +9,10 @@ const kittySchema = mongoose.Schema(
     },
     description: { type: String, required: [true, "description is required"] },
     author: { type: String, required: [true, "author is required"] },
+    img: {
+      type: String,
+      default: "https://i.ibb.co/YBHsp5k/default-avatar.png",
+    },
     likers: { type: [String] },
   },
   { timestamps: true }

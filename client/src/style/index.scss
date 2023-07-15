@@ -1,0 +1,21 @@
+@import "./default";
+@import "./utils.scss";
+
+// Header
+@import "../components/header/header";
+
+// Nav
+@import "../components/navigation/navigation";
+
+// Feature
+@import "../components/feature/feature";
+
+// Footer
+@import "../components/footer/footer";
+
+// Others components
+@import "../components/card/card";
+
+// Pages
+@import "../pages/homepage/homepage";
+@import "../pages/kitty/kitty";
