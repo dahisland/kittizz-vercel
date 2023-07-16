@@ -2,16 +2,16 @@
 
 .createKitty_btn {
   @include flexRow;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1rem;
   background-color: map-get($colors, mauve);
   color: map-get($colors, ice);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   border-radius: 5px;
   overflow: hidden;
   transition: all 300ms ease-in-out;
   svg {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   p {
     margin-left: 1rem;

@@ -55,11 +55,8 @@ body {
   min-height: 100vh;
   main {
     flex-grow: 1;
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0 2rem;
   }
-}
-
-h2 {
-  color: map-get($colors, rose);
-  font-size: 3rem;
-  font-weight: 800;
 }

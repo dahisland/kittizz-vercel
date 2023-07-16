@@ -1,0 +1,12 @@
+@import "../../style/utils";
+
+.loadData_error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include authorFont;
+  color: map-get($colors, mauve);
+  font-size: 3rem;
+  width: 100%;
+  height: 400px;
+}

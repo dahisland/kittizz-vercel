@@ -21,6 +21,7 @@ export const getAllKitties = (req, res, next) => {
 // GET ONE KITTY
 export const getOneKitty = (req, res, next) => {
   Kitty.findOne({ _id: req.params.id })
+    .select("-__v")
     .then((kitty) => {
       if (kitty === null) {
         throw Error(`Kitty with ID : ${req.params.id} not found`);
@@ -118,61 +119,75 @@ export const deleteKitty = (req, res, next) => {
 
 // ADD LIKE IN KITTY
 export const likeKitty = async (req, res, next) => {
-  try {
-    const kittyId = await Kitty.findById(req.params.id);
-    const clientIpAddress = req.socket.remoteAddress;
-    Kitty.findByIdAndUpdate(
-      kittyId,
-      { $addToSet: { likers: clientIpAddress } },
-      { new: true }
-    )
-      .then((kittyUpdated) =>
-        res.status(200).json({
-          data: kittyUpdated,
-          status: 200,
-          message: `Kitty with id : ${req.params.id} has been successfully liked`,
-        })
-      )
-      .catch((err) =>
-        res
-          .status(500)
-          .json({ status: 500, error: err.message ? err.message : err })
-      );
-  } catch (err) {
+  if (req.body.ip === undefined || req.body.ip === "") {
     res.status(400).json({
       status: 400,
-      error: `Kitty with id ${req.params.id} doesn't exists`,
+      error: `Request need body ip param`,
     });
+  } else {
+    try {
+      const kittyId = await Kitty.findById(req.params.id);
+      // const clientIpAddress = req.socket.remoteAddress;
+      Kitty.findByIdAndUpdate(
+        kittyId,
+        { $addToSet: { likers: req.body.ip } },
+        { new: true }
+      )
+        .then((kittyUpdated) =>
+          res.status(200).json({
+            data: kittyUpdated,
+            status: 200,
+            message: `Kitty with id : ${req.params.id} has been successfully liked`,
+          })
+        )
+        .catch((err) =>
+          res
+            .status(500)
+            .json({ status: 500, error: err.message ? err.message : err })
+        );
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        error: `Kitty with id ${req.params.id} doesn't exists`,
+      });
+    }
   }
 };
 
 // REMOVE LIKE IN KITTY
 export const unlikeKitty = async (req, res, next) => {
-  try {
-    const kittyId = await Kitty.findById(req.params.id);
-    const clientIpAddress = req.socket.remoteAddress;
-    Kitty.findByIdAndUpdate(
-      kittyId,
-      { $pull: { likers: clientIpAddress } },
-      { new: true }
-    )
-      .then((kittyUpdated) =>
-        res.status(200).json({
-          data: kittyUpdated,
-          status: 200,
-          message: `Kitty with id : ${req.params.id} has been successfully unliked`,
-        })
-      )
-      .catch((err) =>
-        res
-          .status(500)
-          .json({ status: 500, error: err.message ? err.message : err })
-      );
-  } catch (err) {
+  if (req.body.ip === undefined || req.body.ip === "") {
     res.status(400).json({
       status: 400,
-      error: `Kitty with id ${req.params.id} doesn't exists`,
+      error: `Request need body ip param`,
     });
+  } else {
+    try {
+      const kittyId = await Kitty.findById(req.params.id);
+      // const clientIpAddress = req.socket.remoteAddress;
+      Kitty.findByIdAndUpdate(
+        kittyId,
+        { $pull: { likers: req.body.ip } },
+        { new: true }
+      )
+        .then((kittyUpdated) =>
+          res.status(200).json({
+            data: kittyUpdated,
+            status: 200,
+            message: `Kitty with id : ${req.params.id} has been successfully unliked`,
+          })
+        )
+        .catch((err) =>
+          res
+            .status(500)
+            .json({ status: 500, error: err.message ? err.message : err })
+        );
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        error: `Kitty with id ${req.params.id} doesn't exists`,
+      });
+    }
   }
 };
 
