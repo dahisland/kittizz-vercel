@@ -41,22 +41,19 @@ export const getOneKitty = (req, res, next) => {
 
 // CREATE NEW KITTY
 export const createKitty = (req, res) => {
-  const { title, description, author } = req.body;
+  const { title, description, author, goal } = req.body;
   if (
     title === undefined ||
     description === undefined ||
-    author === undefined
+    author === undefined ||
+    goal === undefined
   ) {
     res.status(400).send({
       status: 400,
-      error: "Request requires body title, description and author data",
+      error: "Request body requires title, description, goal and author data",
     });
   } else {
-    const kitty = new Kitty({
-      title: title,
-      description: description,
-      author: author,
-    });
+    const kitty = new Kitty(req.body);
 
     kitty
       .save()

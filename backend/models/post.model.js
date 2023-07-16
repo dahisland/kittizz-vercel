@@ -11,8 +11,10 @@ const kittySchema = mongoose.Schema(
     author: { type: String, required: [true, "author is required"] },
     img: {
       type: String,
-      default: "https://i.ibb.co/YBHsp5k/default-avatar.png",
+      default: "https://i.ibb.co/hX6qhWs/tirelire03.jpg",
     },
+    goal: { type: Number, required: [true, "goal is required"] },
+    amount: { type: Number, default: 0 },
     likers: { type: [String] },
   },
   { timestamps: true }

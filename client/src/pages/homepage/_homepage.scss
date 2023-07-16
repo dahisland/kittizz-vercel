@@ -1,15 +1,37 @@
 @import "../../style/utils";
 
+.homepage {
+  background-color: lighten(map-get($colors, rose), 33%);
+}
+
 .homepage_main {
   width: 100%;
   margin: 2rem 0;
   padding: 0 2rem;
-  h2 {
-    text-align: left;
+
+  .homepageMain_header {
+    padding: 0.5rem 0;
+    @include flexRow;
+    h2 {
+      text-align: left;
+    }
   }
+
   .homepageMain_kitties {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 2%;
     flex-wrap: wrap;
+  }
+
+  .homepageMain_error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include authorFont;
+    color: map-get($colors, mauve);
+    font-size: 3rem;
+    width: 100%;
+    height: 400px;
   }
 }

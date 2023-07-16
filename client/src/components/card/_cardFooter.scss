@@ -1,0 +1,33 @@
+@import "../../style/utils";
+
+.card-footer {
+  @include flexRow;
+  height: 50px;
+  background-color: map-get($colors, rose);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+
+  .cardFooter-author {
+    @include authorFont;
+    padding: 0 0.5rem;
+  }
+
+  .card-likes {
+    @include flexRow;
+    justify-content: flex-end;
+    transition: all 300ms ease-in-out;
+    transform: scale(1);
+    background-color: map-get($colors, ice);
+    padding: 0 1rem;
+    width: fit-content;
+    height: 100%;
+    font-size: 1.2rem;
+    color: map-get($colors, mauve);
+    &:hover {
+      cursor: pointer;
+      background-color: map-get($colors, mauve);
+      color: map-get($colors, rose);
+    }
+  }
+}

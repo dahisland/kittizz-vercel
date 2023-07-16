@@ -14,9 +14,12 @@ nav {
     a {
       padding: 0 1.5rem;
       background-color: map-get($colors, rose);
+      color: map-get($colors, ice);
+      font-size: 1.1rem;
       transition: all 300ms ease-in-out;
       &:hover {
         background-color: lighten(map-get($colors, rose), 20%);
+        color: map-get($colors, mauve);
       }
     }
   }

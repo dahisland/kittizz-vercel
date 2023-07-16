@@ -1,0 +1,32 @@
+@import "../../style/utils";
+
+.card-img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  position: relative;
+  img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .card-description {
+    opacity: 0;
+    position: absolute;
+    @include flexRow;
+    justify-content: center;
+    padding: 0 0.5rem;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: map-get($colors, rose);
+    transition: all 300ms ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

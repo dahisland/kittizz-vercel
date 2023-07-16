@@ -6,7 +6,8 @@
 
 html {
   font-size: 16px;
-  color: map-get($colors, night);
+  color: map-get($colors, mauve);
+  @include defaultFont;
 }
 
 body,
@@ -55,4 +56,10 @@ body {
   main {
     flex-grow: 1;
   }
+}
+
+h2 {
+  color: map-get($colors, rose);
+  font-size: 3rem;
+  font-weight: 800;
 }

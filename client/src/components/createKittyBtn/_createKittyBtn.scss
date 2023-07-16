@@ -1,0 +1,25 @@
+@import "../../style/utils";
+
+.createKitty_btn {
+  @include flexRow;
+  padding: 1rem 2rem;
+  background-color: map-get($colors, mauve);
+  color: map-get($colors, ice);
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+  svg {
+    font-size: 3rem;
+  }
+  p {
+    margin-left: 1rem;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: map-get($colors, lightmouse);
+    color: map-get($colors, mauve);
+    transform: scale(1.1);
+  }
+}
