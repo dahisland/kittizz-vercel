@@ -7,6 +7,7 @@ import {
   deleteKitty,
   likeKitty,
   unlikeKitty,
+  sendToKitty,
 } from "../controllers/post.controller.js";
 
 const router = express.Router();
@@ -29,5 +30,8 @@ router.delete("/:id", deleteKitty);
 // Update likes
 router.patch("/like/:id", likeKitty);
 router.patch("/unlike/:id", unlikeKitty);
+
+// Send money
+router.patch("/gift/:id", sendToKitty);
 
 export default router;

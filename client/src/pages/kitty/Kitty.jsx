@@ -5,9 +5,13 @@ import Footer from "../../components/footer/Footer";
 import { getOneKitty } from "../../api/callsAPI";
 import MainHeader from "../../components/mainHeader/MainHeader";
 import LoadDataError from "../../components/loadDataError/LoadDataError";
+import CreateKittyModale from "../../components/createKittyModale/CreateKittyModale";
 
 const Kitty = () => {
   const { kittyID } = useParams();
+  const [createKittyModale, setCreateKittyModale] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [dataIsUpdated, setDataIsUpdated] = useState(true);
   const [kittyData, setKittyData] = useState({
     data: null,
     message: "",
@@ -26,12 +30,21 @@ const Kitty = () => {
       <Header />
       <main className="kitty_main">
         {kittyData.data ? (
-          <MainHeader title={kittyData.data.title} />
+          <MainHeader
+            title={kittyData.data.title}
+            functionOnClick={() => setCreateKittyModale(true)}
+          />
         ) : (
           <LoadDataError message={kittyData.message} />
         )}
       </main>
       <Footer />
+      {createKittyModale ? (
+        <CreateKittyModale
+          closeModaleFunction={() => setCreateKittyModale(false)}
+          setDataIsUpdated={null}
+        />
+      ) : null}
     </div>
   );
 };

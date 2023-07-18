@@ -26,5 +26,6 @@
     color: map-get($colors, mauve);
     font-size: 1.2rem;
     font-weight: 700;
+    word-break: break-word;
   }
 }

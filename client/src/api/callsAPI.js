@@ -47,6 +47,28 @@ export const getOneKitty = async (kittyId) => {
   }
 };
 
+export const postKitty = async (obj) => {
+  try {
+    let response = await axios.post(urlAPI, obj, {
+      withCredentials: false,
+    });
+    const data = response.data;
+    const objData = {
+      data: data.id,
+      message: data.message,
+    };
+    console.log(data.message);
+    return objData;
+  } catch (err) {
+    const objData = {
+      data: null,
+      message: err,
+    };
+    console.log(err);
+    return objData;
+  }
+};
+
 // Like a kitty
 export const likeOneKitty = async (kittyId, ip) => {
   try {

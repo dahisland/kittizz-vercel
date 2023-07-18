@@ -7,11 +7,13 @@ import { getKitties } from "../../api/callsAPI";
 import MainHeader from "../../components/mainHeader/MainHeader";
 import LoadDataError from "../../components/loadDataError/LoadDataError";
 import axios from "axios";
+import CreateKittyModale from "../../components/createKittyModale/CreateKittyModale";
 
 const Homepage = () => {
   const [kittiesData, setKittiesData] = useState(null);
   const [dataIsUpdated, setDataIsUpdated] = useState(true);
   const [userIP, setUserIP] = useState("");
+  const [createKittyModale, setCreateKittyModale] = useState(false);
 
   const callGetKitties = async () => {
     const res = await getKitties();
@@ -27,10 +29,9 @@ const Homepage = () => {
 
   useEffect(() => {
     getUserIP();
-
-    if (dataIsUpdated) {
-      callGetKitties();
-    }
+    callGetKitties();
+    // if (dataIsUpdated) {
+    // }
   }, [dataIsUpdated]);
 
   return (
@@ -38,7 +39,10 @@ const Homepage = () => {
       <Header />
       <Feature />
       <main className="homepage_main" id="kitties">
-        <MainHeader title={"Support your favourite kitty"} />
+        <MainHeader
+          title={"Support your favourite kitty"}
+          functionOnClick={() => setCreateKittyModale(true)}
+        />
         {kittiesData ? (
           <div className="homepageMain_kitties">
             {kittiesData.map((item, index) => (
@@ -55,6 +59,12 @@ const Homepage = () => {
         )}
       </main>
       <Footer />
+      {createKittyModale ? (
+        <CreateKittyModale
+          closeModaleFunction={() => setCreateKittyModale(false)}
+          setDataIsUpdated={setDataIsUpdated}
+        />
+      ) : null}
     </div>
   );
 };

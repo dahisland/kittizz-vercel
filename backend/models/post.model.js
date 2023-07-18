@@ -14,7 +14,7 @@ const kittySchema = mongoose.Schema(
       default: "https://i.ibb.co/hX6qhWs/tirelire03.jpg",
     },
     goal: { type: Number, required: [true, "goal is required"] },
-    amount: { type: Number, default: 0 },
+    amount: { type: [Number] },
     likers: { type: [String] },
   },
   { timestamps: true }

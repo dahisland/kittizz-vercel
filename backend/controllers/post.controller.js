@@ -191,64 +191,39 @@ export const unlikeKitty = async (req, res, next) => {
   }
 };
 
-// Patch
-
-// const ipAddress = req.socket.remoteAddress;
-// const ipAddresses = req.header('x-forwarded-for');
-
-/*
-// UPDATE ONE KITTY
-export const updateKitty = (req, res, next) => {
-  const { title, description, author } = req.body;
-
-  if (
-    title === undefined &&
-    description === undefined &&
-    author === undefined
-  ) {
-    // Data can be updated for title only, description only, author only or both
-    return res.status(400).json({
+// SEND MONEY TO KITTY
+export const sendToKitty = async (req, res, next) => {
+  if (req.body.gift === undefined || req.body.gift === "") {
+    res.status(400).json({
       status: 400,
-      error: `Body request requires at least title, description or author data`,
+      error: `Request need body gift param`,
     });
   } else {
-    Kitty.findOne({ _id: req.params.id })
-      .then((kitty) => {
-        if (kitty === null) {
-          throw Error(`Data with id : ${req.params.id} not found`);
-        } else {
-          if (title !== undefined) {
-            kitty.title = title;
-          }
-          if (description !== undefined) {
-            kitty.description = description;
-          }
-          if (author !== undefined) {
-            kitty.author = author;
-          }
-
-          kitty
-            .save()
-            .then((kittyUpdated) =>
-              res.status(200).json({
-                data: kittyUpdated,
-                status: 200,
-                message: `Kitty with id : ${req.params.id} has been successfully updated`,
-              })
-            )
-            .catch((err) =>
-              res
-                .status(500)
-                .json({ status: 500, error: err.message ? err.message : err })
-            );
-        }
-      })
-      .catch((err) =>
-        res
-          .status(400)
-          .json({ status: 400, error: err.message ? err.message : err })
-      );
+    try {
+      const kittyId = await Kitty.findById(req.params.id);
+      // const clientIpAddress = req.socket.remoteAddress;
+      Kitty.findByIdAndUpdate(
+        kittyId,
+        { $addToSet: { amount: req.body.gift } },
+        { new: true }
+      )
+        .then((kittyUpdated) =>
+          res.status(200).json({
+            data: kittyUpdated,
+            status: 200,
+            message: `Kitty with id : ${req.params.id} has successfully received gift`,
+          })
+        )
+        .catch((err) =>
+          res
+            .status(500)
+            .json({ status: 500, error: err.message ? err.message : err })
+        );
+    } catch (err) {
+      res.status(400).json({
+        status: 400,
+        error: `Kitty with id ${req.params.id} doesn't exists`,
+      });
+    }
   }
 };
-
-*/

@@ -4,10 +4,13 @@
   width: 100%;
   padding: 0.5rem 0;
   @include flexRow;
+  gap: 0.5rem;
   h2 {
     text-align: left;
     color: map-get($colors, rose);
     font-size: 3rem;
     font-weight: 800;
+    word-wrap: break-word;
+    max-width: 75%;
   }
 }
