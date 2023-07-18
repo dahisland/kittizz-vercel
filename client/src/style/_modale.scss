@@ -1,0 +1,144 @@
+@import "./utils";
+
+.modale {
+  position: fixed;
+  overscroll-behavior: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modale_innerContainer {
+  width: 470px;
+  height: fit-content;
+  max-height: 95%;
+  background-color: map-get($colors, rose);
+  box-shadow: 2px 2px 4px map-get($colors, lightmouse);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+}
+
+.modale_header {
+  @include flexRow;
+  h3 {
+    @include logoFont;
+    font-size: 1.7rem;
+    color: map-get($colors, ice);
+  }
+  svg {
+    font-size: 2rem;
+    color: map-get($colors, ice);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.modale_content {
+  margin-top: 2.5rem;
+  width: 100%;
+  input {
+    text-align: center;
+    height: 2rem;
+    @include defaultFont;
+    color: map-get($colors, darkmouse);
+    font-size: 0.8rem;
+  }
+
+  textarea {
+    height: 4.9rem;
+    font-size: 0.8rem;
+  }
+
+  input,
+  textarea {
+    width: 65%;
+    @include defaultFont;
+    &::placeholder {
+      font-size: 0.7rem;
+      font-style: italic;
+      color: map-get($colors, mouse);
+    }
+  }
+  label {
+    color: lighten(map-get($colors, rose), 30%);
+  }
+}
+
+.modaleForm_element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.2rem 0rem;
+  div:nth-child(1) {
+    width: 100%;
+    @include flexRow;
+    align-items: start;
+    margin-bottom: 0.3rem;
+  }
+}
+
+textarea#slogan {
+  height: 3rem;
+}
+
+.modale_buttons {
+  width: 100%;
+  margin-top: 0.5rem;
+  @include flexRow;
+  align-items: end;
+  button {
+    border: none;
+    border-radius: 5px;
+    transition: all 300ms ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .reset_btn {
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.3rem 1rem;
+    color: map-get($colors, darkmouse);
+    background-color: map-get($colors, lightmouse);
+  }
+
+  .submit_btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem;
+    color: map-get($colors, ice);
+    background-color: map-get($colors, mauve);
+  }
+}
+
+.submit-message {
+  width: 100%;
+  padding: 0 0.5rem;
+  height: 35px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  color: map-get($colors, lagoon);
+}
+
+.submit-message--error {
+  width: 100%;
+  padding: 0 0.5rem;
+  height: 35px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  color: map-get($colors, blood);
+}
+
+.errors-messages {
+  width: 100%;
+  text-align: right;
+  font-size: 0.7rem;
+  height: 16px;
+  color: map-get($colors, mauve);
+}

@@ -1,0 +1,24 @@
+@import "../../style/utils";
+
+.updateKitty_modale {
+  .modale_innerContainer {
+    background-color: map-get($colors, mauve);
+  }
+
+  .modale_buttons {
+    .submit_btn {
+      background-color: map-get($colors, rose);
+    }
+  }
+
+  .submit-message {
+    color: map-get($colors, rose);
+  }
+
+  .submit-message--error {
+    color: map-get($colors, rose);
+  }
+  .errors-messages {
+    color: map-get($colors, rose);
+  }
+}

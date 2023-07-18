@@ -42,16 +42,18 @@ export const getOneKitty = (req, res, next) => {
 
 // CREATE NEW KITTY
 export const createKitty = (req, res) => {
-  const { title, description, author, goal } = req.body;
+  const { title, slogan, author, goal, details } = req.body;
   if (
     title === undefined ||
-    description === undefined ||
+    slogan === undefined ||
+    details === undefined ||
     author === undefined ||
     goal === undefined
   ) {
     res.status(400).send({
       status: 400,
-      error: "Request body requires title, description, goal and author data",
+      error:
+        "Request body requires title, slogan, goal, details and author data",
     });
   } else {
     const kitty = new Kitty(req.body);

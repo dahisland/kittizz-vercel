@@ -11,7 +11,7 @@
     object-fit: cover;
     object-position: center;
   }
-  .card-description {
+  .card_slogan {
     opacity: 0;
     position: absolute;
     @include flexRow;

@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { postKitty } from "../../api/callsAPI";
-import { inputValidations } from "./inputValidation.createKitty";
+import { updateKitty } from "../../api/callsAPI";
+import { inputValidations } from "./inputValidation.updateKitty";
 
-const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
+const UpdateKittyModale = ({
+  setDataIsUpdated,
+  closeModaleFunction,
+  kittyData,
+}) => {
   const [submitError, setSubmitError] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
@@ -16,21 +20,20 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
     formState: { errors },
   } = useForm();
 
-  const submitCreateKittyForm = async (data) => {
+  const submitUpdateKittyForm = async (data) => {
     let dataToSend = { ...data, goal: parseFloat(data.goal) };
-    if (dataToSend.img === "") {
-      delete dataToSend.img;
-    }
-    const res = await postKitty(dataToSend);
+
+    const res = await updateKitty(dataToSend, kittyData._id);
     if (res === null || res.data === null) {
       setSubmitError(true);
       setSubmitMessage("An error has occured. Please try later");
     } else {
       setSubmitError(false);
-      setSubmitMessage("Your kitty has been successfully registered");
+      setSubmitMessage("Your kitty has been successfully updated");
       reset();
+      closeModaleFunction(true);
     }
-    console.log(res);
+
     if (setDataIsUpdated) {
       setDataIsUpdated(true);
     }
@@ -44,16 +47,16 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
   };
 
   return (
-    <div className="modale createKitty_modale">
+    <div className="modale updateKitty_modale">
       <div className="modale_innerContainer">
         <header className="modale_header">
-          <h3>Create your own kitty</h3>
+          <h3>Update your kitty</h3>
           <RiCloseCircleLine onClick={closeModaleFunction} />
         </header>
         <div className="modale_content">
           <form
             className="modale_form"
-            onSubmit={handleSubmit(submitCreateKittyForm)}
+            onSubmit={handleSubmit(submitUpdateKittyForm)}
           >
             <div className="modaleForm_element">
               <div>
@@ -62,8 +65,8 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
                   type="text"
                   id="title"
                   name="title"
-                  placeholder="ex : Help the SweetyHouse animal shelter"
                   autoComplete="off"
+                  defaultValue={kittyData.title}
                   {...register("title", inputValidations("title"))}
                 />
               </div>
@@ -80,7 +83,7 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
                   id="slogan"
                   name="slogan"
                   autoComplete="off"
-                  placeholder="Explain in a few words how the kitty will be useful"
+                  defaultValue={kittyData.slogan}
                   {...register("slogan", inputValidations("slogan"))}
                 ></textarea>
               </div>
@@ -97,7 +100,7 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
                   id="details"
                   name="details"
                   autoComplete="off"
-                  placeholder="Describe precisely the stakes of this kitty. Explain each step to inform how the money will be spent"
+                  defaultValue={kittyData.details}
                   {...register("details", inputValidations("details"))}
                 ></textarea>
               </div>
@@ -114,7 +117,7 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
                   type="text"
                   id="author"
                   name="author"
-                  placeholder="ex : SweetyHouse"
+                  defaultValue={kittyData.author}
                   autoComplete="off"
                   {...register("author", inputValidations("author"))}
                 />
@@ -132,7 +135,7 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
                   type="number"
                   id="goal"
                   name="goal"
-                  placeholder="ex : 1253 (in $)"
+                  defaultValue={kittyData.goal}
                   autoComplete="off"
                   min="0"
                   step="1"
@@ -147,12 +150,12 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
 
             <div className="modaleForm_element">
               <div>
-                <label htmlFor="image">Image (optional)</label>
+                <label htmlFor="image">Image</label>
                 <input
                   type="text"
                   id="image"
                   name="img"
-                  placeholder="ex : https://my_personnal_img.jpg"
+                  defaultValue={kittyData.img}
                   autoComplete="off"
                   {...register("img", inputValidations("img"))}
                 />
@@ -176,7 +179,7 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
                 Reset
               </button>
               <button className="submit_btn" type="submit">
-                Create kitty
+                Update kitty
               </button>
             </div>
           </form>
@@ -186,4 +189,4 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
   );
 };
 
-export default CreateKittyModale;
+export default UpdateKittyModale;

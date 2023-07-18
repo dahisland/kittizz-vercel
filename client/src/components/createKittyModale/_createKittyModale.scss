@@ -1,1 +1,15 @@
 @import "../../style/utils";
+
+.createKitty_modale {
+  .submit-message {
+    color: map-get($colors, mauve);
+  }
+
+  .submit-message--error {
+    color: map-get($colors, mauve);
+  }
+
+  .errors-messages {
+    color: map-get($colors, mauve);
+  }
+}

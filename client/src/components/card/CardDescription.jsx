@@ -9,7 +9,7 @@ const CardDescription = () => {
     <NavLink to={"/kitty/" + data._id}>
       <picture className="card-img">
         <img src={data.img} alt={data.title} />
-        <div className="card-description">{data.description}</div>
+        <div className="card_slogan">{data.slogan}</div>
       </picture>
     </NavLink>
   );

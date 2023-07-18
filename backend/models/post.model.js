@@ -7,7 +7,8 @@ const kittySchema = mongoose.Schema(
       type: String,
       required: [true, "title is required"],
     },
-    description: { type: String, required: [true, "description is required"] },
+    slogan: { type: String, required: [true, "slogan is required"] },
+    details: { type: String, required: [true, "details is required"] },
     author: { type: String, required: [true, "author is required"] },
     img: {
       type: String,

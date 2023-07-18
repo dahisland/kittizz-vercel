@@ -1,0 +1,18 @@
+@import "../../../style/utils";
+
+.kittyContent_goal {
+  width: 70%;
+  height: 350px;
+  padding: 1rem 3rem;
+  background-color: map-get($colors, ice);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .kittyContent_slogan {
+    @include authorFont;
+    color: map-get($colors, rose);
+    font-size: 2rem;
+  }
+}
