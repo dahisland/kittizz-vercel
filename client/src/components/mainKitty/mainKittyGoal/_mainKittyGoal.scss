@@ -9,11 +9,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @include responsiveTabloids {
+    width: 100%;
+    height: fit-content;
+    padding: 0rem;
+  }
 
   .kittyContent_slogan {
     @include authorFont;
     color: map-get($colors, darkmint);
     font-size: 2rem;
+    @include responsiveTabloids {
+      font-size: 1.8rem;
+      padding: 1rem;
+      padding-bottom: 0;
+    }
   }
 
   .kittyContent_goal {
@@ -48,6 +58,9 @@
       font-weight: 800;
       border-radius: 10px;
       transition: all 300ms ease-in-out;
+      @include responsiveTabloids {
+        border-radius: inherit;
+      }
       &:hover {
         background-color: map-get($colors, mauve);
         color: map-get($colors, mint);

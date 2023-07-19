@@ -4,6 +4,15 @@
   @include flexRow;
   width: 100%;
   justify-content: space-around;
+  @include responsiveTabloids {
+    margin: 1.5rem;
+  }
+  @include responsiveMobiles {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .kittyContent_chart {

@@ -1,0 +1,13 @@
+@import "../../style/utils";
+
+.about {
+  background-color: lighten(map-get($colors, mint), 12%);
+}
+
+.about_main {
+  p.aboutMain_txt {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    color: map-get($colors, mauve);
+  }
+}

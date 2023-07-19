@@ -9,11 +9,17 @@
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
+  @include responsiveMini {
+    border-radius: 0;
+  }
 }
 
 .kittyContent_header {
   width: 100%;
   @include flexRow;
+  @include responsiveTabloids {
+    flex-direction: column;
+  }
 }
 
 .kittyContent_img {
@@ -21,11 +27,18 @@
   width: 40%;
   height: 450px;
   position: relative;
+  @include responsiveTabloids {
+    width: 100%;
+    height: 250px;
+  }
   img {
     width: 100%;
     height: 450px;
     object-fit: cover;
     object-position: center;
+    @include responsiveTabloids {
+      height: 250px;
+    }
   }
 }
 
@@ -34,10 +47,16 @@
   min-height: 220px;
   background-color: map-get($colors, mint);
   @include flexRow;
+  @include responsiveMobiles {
+    flex-direction: column;
+  }
   .kittyContent_details {
     text-align: left;
     width: 60%;
     padding: 2rem;
     height: fit-content;
+    @include responsiveMobiles {
+      width: 100%;
+    }
   }
 }

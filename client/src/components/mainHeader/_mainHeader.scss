@@ -5,6 +5,11 @@
   padding: 0.5rem 0;
   @include flexRow;
   gap: 0.5rem;
+
+  @include responsiveTabloids {
+    flex-direction: column;
+  }
+
   h2 {
     text-align: left;
     color: map-get($colors, rose);
@@ -12,5 +17,15 @@
     font-weight: 800;
     word-wrap: break-word;
     max-width: 70%;
+    @include responsiveTabloids {
+      text-align: center;
+      max-width: 100%;
+    }
+    @include responsiveMobiles {
+      font-size: 2.5rem;
+    }
+    @include responsiveMini {
+      font-size: 2rem;
+    }
   }
 }

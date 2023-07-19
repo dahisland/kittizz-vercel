@@ -2,6 +2,9 @@
 
 nav {
   height: 100%;
+  @include responsiveMobiles {
+    width: 100%;
+  }
 
   ul {
     @include flexRow;
@@ -11,8 +14,14 @@ nav {
   }
   li {
     height: 100%;
+    @include responsiveMobiles {
+      width: 50%;
+    }
     a {
       padding: 0 1.5rem;
+      @include responsiveMobiles {
+        padding: 0 0.5rem;
+      }
     }
   }
   li:nth-child(1) {
@@ -26,6 +35,12 @@ nav {
         background-color: lighten(map-get($colors, mint), 0%);
         color: map-get($colors, mauve);
       }
+      @include responsiveMobiles {
+        height: 60px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        font-style: normal;
+      }
     }
   }
   li:nth-child(2) {
@@ -38,6 +53,12 @@ nav {
       &:hover {
         background-color: lighten(map-get($colors, rose), 20%);
         color: map-get($colors, mauve);
+      }
+      @include responsiveMobiles {
+        height: 60px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        font-style: normal;
       }
     }
   }

@@ -7,6 +7,10 @@
   background-image: url("../../assets/team-spirit.jpg");
   background-size: cover;
   background-position: bottom;
+  @include responsiveMobiles {
+    height: 350px;
+    background-position: center;
+  }
   .feature-content {
     position: absolute;
     color: map-get($colors, ice);
@@ -18,5 +22,9 @@
     left: 0;
     right: 0;
     font-size: 4rem;
+    padding: 0.6rem;
+    @include responsiveMobiles {
+      font-size: 3rem;
+    }
   }
 }

@@ -9,6 +9,12 @@
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  @include responsiveMobiles {
+    width: 100%;
+    justify-content: space-between;
+    justify-content: flex-start;
+    min-height: 120px;
+  }
 
   .modifyKitty_btn {
     @include flexRow;
@@ -34,6 +40,12 @@
       svg {
         transform: translateX(-2rem);
         color: map-get($colors, mint);
+      }
+    }
+    @include responsiveMobiles {
+      border-radius: 0;
+      &:hover {
+        transform: inherit;
       }
     }
   }

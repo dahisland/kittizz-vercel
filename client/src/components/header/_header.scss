@@ -5,10 +5,18 @@ header.header-page {
   height: 80px;
   @include flexRow;
   background-color: map-get($colors, ice);
+  @include responsiveMobiles {
+    flex-direction: column;
+    padding-top: 1rem;
+    height: fit-content;
+  }
 
   a {
     @include flexRow;
     height: 100%;
+    @include responsiveMobiles {
+      justify-content: center;
+    }
   }
 
   h1 {
@@ -22,6 +30,10 @@ header.header-page {
   .header-nav {
     @include flexRow;
     height: 100%;
+    @include responsiveMobiles {
+      width: 100%;
+      flex-direction: column;
+    }
   }
 
   .header-connexion {
@@ -38,6 +50,11 @@ header.header-page {
       cursor: pointer;
       background-color: map-get($colors, mauve);
       color: map-get($colors, rose);
+    }
+    @include responsiveMobiles {
+      width: 100%;
+      padding: 0.5rem;
+      justify-content: center;
     }
   }
 }

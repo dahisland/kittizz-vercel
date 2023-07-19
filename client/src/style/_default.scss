@@ -52,6 +52,15 @@ body {
     width: 100%;
     margin: 2rem 0;
     padding: 0 2rem;
+    @include responsiveTabloids {
+      margin-top: 1rem;
+    }
+    @include responsiveMobiles {
+      padding: 0 1rem;
+    }
+    @include responsiveMini {
+      padding: 0;
+    }
   }
 }
 

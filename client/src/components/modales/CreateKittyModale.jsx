@@ -146,7 +146,9 @@ const CreateKittyModale = ({ closeModaleFunction, setDataIsUpdated }) => {
 
             <div className="modaleForm_element">
               <div>
-                <label htmlFor="image">Image (optional)</label>
+                <label htmlFor="image">
+                  Image <br /> (optional)
+                </label>
                 <input
                   type="text"
                   id="image"

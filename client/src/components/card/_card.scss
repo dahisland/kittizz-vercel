@@ -17,6 +17,13 @@
     transform: scale(1.05);
   }
 
+  @include responsiveMini {
+    border-radius: 0px;
+    &:hover {
+      transform: inherit;
+    }
+  }
+
   h3 {
     @include flexRow;
     justify-content: center;
@@ -27,5 +34,12 @@
     font-size: 1.2rem;
     font-weight: 700;
     word-break: break-word;
+  }
+
+  @include responsiveTabloids {
+    width: 49%;
+  }
+  @include responsiveMobiles {
+    width: 100%;
   }
 }

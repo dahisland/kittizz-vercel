@@ -46,3 +46,21 @@ $colors: (
   font-size: 1rem;
   color: map-get($colors, night);
 }
+
+@mixin responsiveTabloids {
+  @media screen and (max-width: 980px) {
+    @content;
+  }
+}
+
+@mixin responsiveMobiles {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
+@mixin responsiveMini {
+  @media screen and (max-width: 580px) {
+    @content;
+  }
+}

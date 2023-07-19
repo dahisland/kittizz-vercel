@@ -9,6 +9,10 @@
   overflow: hidden;
   padding: 0;
 
+  @include responsiveMini {
+    border-radius: 0;
+  }
+
   .cardFooter-author {
     @include authorFont;
     padding: 0 0.5rem;

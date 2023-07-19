@@ -14,13 +14,22 @@
 .modale_innerContainer {
   width: 470px;
   height: fit-content;
-  max-height: 95%;
+  max-height: 97%;
   background-color: map-get($colors, rose);
   box-shadow: 2px 2px 4px map-get($colors, lightmouse);
   border-radius: 10px;
   overflow: hidden;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   overflow-y: auto;
+  @include responsiveMobiles {
+    width: 80%;
+  }
+  @include responsiveMini {
+    width: 100%;
+    border-radius: 0;
+    max-height: 100%;
+    padding: 1rem 0.5rem;
+  }
 }
 
 .modale_header {
@@ -29,6 +38,9 @@
     @include logoFont;
     font-size: 1.7rem;
     color: map-get($colors, ice);
+    @include responsiveMini {
+      font-size: 1.3rem;
+    }
   }
   svg {
     font-size: 2rem;
@@ -40,7 +52,7 @@
 }
 
 .modale_content {
-  margin-top: 2.5rem;
+  margin-top: 1.7rem;
   width: 100%;
   input {
     text-align: center;
@@ -64,9 +76,16 @@
       font-style: italic;
       color: map-get($colors, mouse);
     }
+    @include responsiveMini {
+      width: 68%;
+    }
   }
   label {
     color: lighten(map-get($colors, rose), 30%);
+    text-align: left;
+    @include responsiveMini {
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -120,7 +139,7 @@ textarea#slogan {
 .submit-message {
   width: 100%;
   padding: 0 0.5rem;
-  height: 35px;
+  height: 27px;
   font-size: 0.8rem;
   line-height: 0.8rem;
   color: map-get($colors, lagoon);
