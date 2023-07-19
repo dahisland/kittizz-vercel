@@ -54,11 +54,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
-app.use(express.static(path.join(process.cwd(), "client", "build")));
-
 // Routes
 app.use("/post", postRoutes);
+
+// IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
+app.use(express.static(path.join(process.cwd(), "client", "build")));
 
 // IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
 app.get("*", (_, res) => {
