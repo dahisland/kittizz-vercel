@@ -56,13 +56,14 @@ app.use(express.urlencoded({ extended: false }));
 
 // IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
 app.use(express.static(path.join(process.cwd(), "client", "build")));
+
+// Routes
+app.use("/post", postRoutes);
+
 // IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
 app.get("*", (_, res) => {
   res.sendFile(path.join(process.cwd(), "client", "build", "index.html"));
 });
-
-// Routes
-app.use("/post", postRoutes);
 
 // Process
 server.on("listening", () => {
