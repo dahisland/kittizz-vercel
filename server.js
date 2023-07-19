@@ -54,16 +54,15 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// TEST - Connect to front
+// IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
 app.use(express.static(path.join(process.cwd(), "client", "build")));
-
-// Routes
-app.use("/post", postRoutes);
-
-// TEST - path to the index.html client
+// IMPORTANT FOR VERCEL - FOR PATH TO CLIENT INDEX.HTML
 app.get("*", (_, res) => {
   res.sendFile(path.join(process.cwd(), "client", "build", "index.html"));
 });
+
+// Routes
+app.use("/post", postRoutes);
 
 // Process
 server.on("listening", () => {
