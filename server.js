@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import postRoutes from "./routes/post.routes.js";
 import connectDB from "./config/db.js";
 import cors from "cors";
+import path from "path";
 
 dotenv.config({ path: ".env" });
 
@@ -31,6 +32,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use("/post", postRoutes);
+
+// TEST - path to the index.html client
+app.get("*", (_, res) => {
+  res.sendFile(path.join(process.cwd(), "client", "build", "index.html"));
+});
 
 // Launch server
 app.listen(port, () => console.log("server is on port : " + port));
