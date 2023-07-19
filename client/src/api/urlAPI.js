@@ -1,4 +1,4 @@
-const baseApiURL = "http://localhost:5000";
+const baseApiURL = "https://kittizz.vercel.app";
 
 const kittyEnpoint = "/post/";
 const kittyLikeEnpoint = kittyEnpoint + "like/";

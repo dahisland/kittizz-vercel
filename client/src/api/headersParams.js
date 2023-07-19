@@ -1,3 +1,3 @@
 export const headers = {
-  withCredentials: false,
+  withCredentials: true,
 };
