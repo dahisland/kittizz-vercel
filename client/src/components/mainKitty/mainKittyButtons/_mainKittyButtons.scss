@@ -16,7 +16,7 @@
     border-radius: 5px;
     overflow: hidden;
     padding: 0.8rem 1rem;
-    background-color: map-get($colors, mauve);
+    background-color: map-get($colors, darkmint);
     color: map-get($colors, ice);
     font-size: 1.3rem;
     font-weight: 700;
@@ -27,13 +27,13 @@
     }
     &:hover {
       cursor: pointer;
-      background-color: map-get($colors, rose);
-      color: map-get($colors, mauve);
+      background-color: map-get($colors, mauve);
+      color: map-get($colors, mint);
       transform: scale(1.1);
       font-weight: 800;
       svg {
         transform: translateX(-2rem);
-        color: map-get($colors, mauve);
+        color: map-get($colors, mint);
       }
     }
   }

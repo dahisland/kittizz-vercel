@@ -3,10 +3,11 @@
 .card-footer {
   @include flexRow;
   height: 50px;
-  background-color: map-get($colors, rose);
+  background-color: map-get($colors, darkmint);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   overflow: hidden;
+  padding: 0;
 
   .cardFooter-author {
     @include authorFont;
@@ -27,10 +28,10 @@
   }
 
   .card-likes--liked {
-    background-color: map-get($colors, mauve);
-    color: map-get($colors, rose);
+    background-color: lighten(map-get($colors, mint), 0%);
+    color: map-get($colors, mauve);
     &:hover {
-      background-color: map-get($colors, ice);
+      background-color: lighten(map-get($colors, rose), 20%);
       color: map-get($colors, mauve);
     }
   }
@@ -39,8 +40,8 @@
     background-color: map-get($colors, ice);
     color: map-get($colors, mauve);
     &:hover {
-      background-color: map-get($colors, mauve);
-      color: map-get($colors, rose);
+      background-color: lighten(map-get($colors, rose), 20%);
+      color: map-get($colors, mauve);
     }
   }
 }

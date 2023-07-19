@@ -1,5 +1,6 @@
 @import "../../style/utils";
 @import "./mainKittyGoal/mainKittyGoal";
+@import "./mainKittyGoal/kittyChart";
 @import "./mainKittyButtons/mainKittyButtons";
 
 .kitty_content {
@@ -17,12 +18,12 @@
 
 .kittyContent_img {
   display: block;
-  width: 30%;
-  height: 350px;
+  width: 40%;
+  height: 450px;
   position: relative;
   img {
     width: 100%;
-    height: 350px;
+    height: 450px;
     object-fit: cover;
     object-position: center;
   }
@@ -31,7 +32,7 @@
 .kittyContent_main {
   width: 100%;
   min-height: 220px;
-  background-color: map-get($colors, lightmouse);
+  background-color: map-get($colors, mint);
   @include flexRow;
   .kittyContent_details {
     text-align: left;

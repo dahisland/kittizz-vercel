@@ -1,0 +1,63 @@
+@import "../../style/utils";
+
+.donation_modale {
+  .modale_innerContainer {
+    background-color: map-get($colors, mauve);
+  }
+
+  .modale_content {
+    margin: 0px;
+    h3 {
+      font-size: 2.5rem;
+      color: map-get($colors, ice);
+      margin-bottom: 2rem;
+    }
+    .modaleForm_element {
+      align-items: center;
+      .errors-messages {
+        width: 65%;
+        text-align: center;
+        padding: 0.3rem;
+        height: 25px;
+        color: lighten(map-get($colors, rose), 30%);
+      }
+      input {
+        height: 2.5rem;
+      }
+    }
+
+    .submit-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .submitDonation_btn {
+      cursor: pointer;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background-color: map-get($colors, mint);
+      color: map-get($colors, darkmint);
+    }
+
+    .cancel_btn {
+      @include defaultFont;
+      cursor: pointer;
+      margin-top: 1rem;
+      padding: 0.3rem 1rem;
+      border-radius: 5px;
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+  }
+
+  .submit-message,
+  .submit-message--error {
+    color: map-get($colors, mint);
+  }
+}

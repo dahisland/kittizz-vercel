@@ -4,14 +4,18 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { getOneKitty } from "../../api/callsAPI";
 import LoadDataError from "../../components/loadDataError/LoadDataError";
-import CreateKittyModale from "../../components/createKittyModale/CreateKittyModale";
-import UpdateKittyModale from "../../components/updateKittyModale/UpdateKittyModale";
+import CreateKittyModale from "../../components/modales/CreateKittyModale";
+import UpdateKittyModale from "../../components/modales/UpdateKittyModale";
+import DeleteKittyModale from "../../components/modales/DeleteKittyModale";
+import DonateKittyModale from "../../components/modales/DonateKittyModale";
 import MainKitty from "../../components/mainKitty/MainKitty";
 
 const Kitty = () => {
   const { kittyID } = useParams();
   const [createKittyModale, setCreateKittyModale] = useState(false);
   const [updateKittyModale, setUpdateKittyModale] = useState(false);
+  const [deleteKittyModale, setDeleteKittyModale] = useState(false);
+  const [donateKittyModale, setDonateKittyModale] = useState(false);
   const [dataIsUpdated, setDataIsUpdated] = useState(false);
 
   const [kittyData, setKittyData] = useState({
@@ -37,6 +41,8 @@ const Kitty = () => {
             data={kittyData.data}
             functionOnClick={() => setCreateKittyModale(true)}
             functionOpenUpdateModale={() => setUpdateKittyModale(true)}
+            functionOpenDeleteModale={() => setDeleteKittyModale(true)}
+            functionOpenDonateModale={() => setDonateKittyModale(true)}
           />
         ) : (
           <LoadDataError message={kittyData.message} />
@@ -54,6 +60,19 @@ const Kitty = () => {
           closeModaleFunction={() => setUpdateKittyModale(false)}
           setDataIsUpdated={setDataIsUpdated}
           kittyData={kittyData.data}
+        />
+      ) : null}
+      {deleteKittyModale ? (
+        <DeleteKittyModale
+          closeModaleFunction={() => setDeleteKittyModale(false)}
+          data={kittyData.data}
+        />
+      ) : null}
+      {donateKittyModale ? (
+        <DonateKittyModale
+          closeModaleFunction={() => setDonateKittyModale(false)}
+          kittyData={kittyData.data}
+          setDataIsUpdated={setDataIsUpdated}
         />
       ) : null}
     </div>

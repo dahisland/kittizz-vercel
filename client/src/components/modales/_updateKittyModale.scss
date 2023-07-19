@@ -1,0 +1,42 @@
+@import "../../style/utils";
+
+.updateKitty_modale {
+  .modale_innerContainer {
+    background-color: map-get($colors, darkmint);
+  }
+
+  .modale_content {
+    input,
+    textarea {
+      color: darken(map-get($colors, darkmint), 10%);
+    }
+  }
+
+  .modale_buttons {
+    .submit_btn {
+      background-color: map-get($colors, mint);
+      color: map-get($colors, darkmint);
+      font-weight: 700;
+    }
+    .reset_btn {
+      background-color: lighten(map-get($colors, mint), 10%);
+    }
+  }
+
+  .submit-message {
+    color: lighten(map-get($colors, mint), 10%);
+  }
+
+  .submit-message--error {
+    color: lighten(map-get($colors, mint), 10%);
+  }
+  .errors-messages {
+    color: lighten(map-get($colors, mint), 10%);
+  }
+
+  .modaleForm_element {
+    label {
+      color: lighten(map-get($colors, mint), 10%);
+    }
+  }
+}

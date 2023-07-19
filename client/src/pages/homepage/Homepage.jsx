@@ -7,7 +7,7 @@ import { getKitties } from "../../api/callsAPI";
 import MainHeader from "../../components/mainHeader/MainHeader";
 import LoadDataError from "../../components/loadDataError/LoadDataError";
 import axios from "axios";
-import CreateKittyModale from "../../components/createKittyModale/CreateKittyModale";
+import CreateKittyModale from "../../components/modales/CreateKittyModale";
 
 const Homepage = () => {
   const [kittiesData, setKittiesData] = useState(null);

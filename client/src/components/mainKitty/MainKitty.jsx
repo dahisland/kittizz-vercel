@@ -3,7 +3,13 @@ import MainHeader from "../mainHeader/MainHeader";
 import MainKittyGoal from "./mainKittyGoal/MainKittyGoal";
 import MainKittyButtons from "./mainKittyButtons/MainKittyButtons";
 
-const MainKitty = ({ data, functionOnClick, functionOpenUpdateModale }) => {
+const MainKitty = ({
+  data,
+  functionOnClick,
+  functionOpenUpdateModale,
+  functionOpenDeleteModale,
+  functionOpenDonateModale,
+}) => {
   return (
     <div className="kittyMain">
       <MainHeader title={data.title} functionOnClick={functionOnClick} />
@@ -12,14 +18,17 @@ const MainKitty = ({ data, functionOnClick, functionOpenUpdateModale }) => {
           <picture className="kittyContent_img">
             <img src={data.img} alt={data.title} />
           </picture>
-          <MainKittyGoal data={data} />
+          <MainKittyGoal
+            kittyData={data}
+            functionOpenDonateModale={functionOpenDonateModale}
+          />
         </div>
 
         <div className="kittyContent_main">
           <div className="kittyContent_details">{data.details}</div>
           <MainKittyButtons
-            data={data}
             functionOpenUpdateModale={functionOpenUpdateModale}
+            functionOpenDeleteModale={functionOpenDeleteModale}
           />
         </div>
       </div>

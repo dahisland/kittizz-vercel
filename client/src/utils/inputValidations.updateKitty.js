@@ -2,10 +2,6 @@ export function inputValidations(reg) {
   switch (reg) {
     case "title":
       return {
-        required: {
-          value: true,
-          message: "This field is required",
-        },
         minLength: {
           value: 6,
           message: "Min 6 characters",
@@ -17,25 +13,17 @@ export function inputValidations(reg) {
       };
     case "slogan":
       return {
-        required: {
-          value: true,
-          message: "This field is required",
-        },
         minLength: {
           value: 6,
           message: "Min 6 characters",
         },
         maxLength: {
-          value: 180,
-          message: "Max 180 characters",
+          value: 100,
+          message: "Max 100 characters",
         },
       };
     case "details":
       return {
-        required: {
-          value: true,
-          message: "This field is required",
-        },
         minLength: {
           value: 6,
           message: "Min 6 characters",
@@ -47,10 +35,6 @@ export function inputValidations(reg) {
       };
     case "author":
       return {
-        required: {
-          value: true,
-          message: "This field is required",
-        },
         minLength: {
           value: 6,
           message: "Min 6 characters",
@@ -62,13 +46,13 @@ export function inputValidations(reg) {
       };
     case "goal":
       return {
-        required: {
-          value: true,
-          message: "This field is required",
-        },
         pattern: {
           value: /^[1-9]{1}[0-9]{0,}/,
           message: "Must be a integer number up to 0",
+        },
+        maxLength: {
+          value: 6,
+          message: "Max 999 999 $",
         },
       };
     case "img":
@@ -79,11 +63,6 @@ export function inputValidations(reg) {
         },
       };
     default:
-      return {
-        required: {
-          value: true,
-          message: "This field is required",
-        },
-      };
+      return {};
   }
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { headers } from "./headersParams";
-import { likeUrlAPI, unlikeUrlAPI, urlAPI } from "./urlAPI";
+import { likeUrlAPI, unlikeUrlAPI, urlAPI, donateUrlAPI } from "./urlAPI";
 
 // Get all kitties data
 export const getKitties = async () => {
@@ -119,6 +119,22 @@ export const unlikeOneKitty = async (kittyId, ip) => {
   try {
     let response = await axios.patch(
       unlikeUrlAPI + kittyId,
+      bodyParams,
+      headers
+    );
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Send donation
+export const donateToKitty = async (kittyId, gift) => {
+  const bodyParams = { gift: gift };
+  try {
+    let response = await axios.patch(
+      donateUrlAPI + kittyId,
       bodyParams,
       headers
     );

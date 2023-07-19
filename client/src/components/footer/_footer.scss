@@ -1,1 +1,32 @@
 @import "../../style/utils";
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+
+  .footer_links {
+    margin-bottom: 0.2rem;
+    width: 100%;
+    @include flexRow;
+    justify-content: center;
+    gap: 2rem;
+    li {
+      cursor: pointer;
+      transition: all 300ms ease-in-out;
+      color: map-get($colors, darkmint);
+      font-weight: 700;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  p.copyright {
+    color: map-get($colors, night);
+    font-weight: 300;
+    font-size: 0.8rem;
+  }
+}

@@ -104,15 +104,15 @@ textarea#slogan {
     cursor: pointer;
     font-size: 0.8rem;
     padding: 0.3rem 1rem;
-    color: map-get($colors, darkmouse);
-    background-color: map-get($colors, lightmouse);
+    color: map-get($colors, mauve);
+    background-color: lighten(map-get($colors, rose), 30%);
   }
 
   .submit_btn {
     cursor: pointer;
     font-size: 1.2rem;
     padding: 0.5rem 2rem;
-    color: map-get($colors, ice);
+    color: lighten(map-get($colors, rose), 30%);
     background-color: map-get($colors, mauve);
   }
 }

@@ -1,8 +1,8 @@
 @import "../../../style/utils";
 
-.kittyContent_goal {
+.kittyContent_figures {
   width: 70%;
-  height: 350px;
+  height: 450px;
   padding: 1rem 3rem;
   background-color: map-get($colors, ice);
   display: flex;
@@ -12,7 +12,47 @@
 
   .kittyContent_slogan {
     @include authorFont;
-    color: map-get($colors, rose);
+    color: map-get($colors, darkmint);
     font-size: 2rem;
+  }
+
+  .kittyContent_goal {
+    cursor: pointer;
+    @include logoFont;
+    color: map-get($colors, ice);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    background-color: map-get($colors, darkmint);
+    outline: 20px solid map-get($colors, mint);
+    padding: 2rem;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    transition: all 300ms ease-in-out;
+    &:hover {
+      transform: scale(1.1) rotate(10deg);
+    }
+  }
+
+  .kittyContent_donationBtn {
+    width: 100%;
+    button {
+      cursor: pointer;
+      width: 100%;
+      padding: 0.8rem 3rem;
+      color: map-get($colors, ice);
+      background-color: map-get($colors, rose);
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 10px;
+      transition: all 300ms ease-in-out;
+      &:hover {
+        background-color: map-get($colors, mauve);
+        color: map-get($colors, mint);
+        transform: scale(1.1);
+      }
+    }
   }
 }

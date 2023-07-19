@@ -1,0 +1,33 @@
+@import "../../../style/utils";
+
+.kittyContent_chartContainer {
+  @include flexRow;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.kittyContent_chart {
+  position: relative;
+
+  .chart_amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    p {
+      margin: 0;
+      padding: 0.2rem;
+      padding-top: 0.5rem;
+      width: fit-content;
+      @include logoFont;
+      background-color: rgba(255, 255, 255, 0.6);
+      color: map-get($colors, mauve);
+      font-size: 1.5rem;
+      border-radius: 15px;
+    }
+  }
+}
