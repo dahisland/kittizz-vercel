@@ -4,11 +4,11 @@ import postRoutes from "./routes/post.routes.js";
 import connectDB from "./config/db.js";
 import cors from "cors";
 import path from "path";
+import { createServer } from "http";
 
 dotenv.config({ path: ".env" });
 
 const app = express();
-const port = process.env.PORT || 5000;
 
 // Database connection
 connectDB();
@@ -23,12 +23,39 @@ const corsOptions = {
   preflightContinue: false,
 };
 
+// Normalize port
+const normalizePort = (value) => {
+  const port = parseInt(value, 10);
+
+  if (isNaN(port)) {
+    return value;
+  }
+  if (port >= 0) {
+    return port;
+  }
+  return false;
+};
+
+const port = normalizePort(process.env.PORT) || 5000;
+
+// Create server
+const server = createServer(app);
+
+// Server address
+const address = server.address();
+
+// Indicate the port used to the Express module
+app.set("port", port);
+
 // Intercept all requests to apply cors configuration before all requests
 app.use(cors(corsOptions));
 
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// TEST - Connect to front
+app.use(express.static(path.join(process.cwd(), "client", "build")));
 
 // Routes
 app.use("/post", postRoutes);
@@ -38,5 +65,12 @@ app.get("*", (_, res) => {
   res.sendFile(path.join(process.cwd(), "client", "build", "index.html"));
 });
 
-// Launch server
-app.listen(port, () => console.log("server is on port : " + port));
+// Process
+server.on("listening", () => {
+  const addressTypeof =
+    typeof address === "string" ? "pipe " + address : "port " + port;
+  console.log("Listening on " + addressTypeof);
+});
+
+// Listen the request which will be sent to server by a port.
+server.listen(port);
