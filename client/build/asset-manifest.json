@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.d340c285.css",
-    "main.js": "/static/js/main.62fbccb1.js",
+    "main.css": "/static/css/main.dc189456.css",
+    "main.js": "/static/js/main.d1fb375a.js",
     "static/media/team-spirit.jpg": "/static/media/team-spirit.9b2d4083136726d28f08.jpg",
     "index.html": "/index.html",
-    "main.d340c285.css.map": "/static/css/main.d340c285.css.map",
-    "main.62fbccb1.js.map": "/static/js/main.62fbccb1.js.map"
+    "main.dc189456.css.map": "/static/css/main.dc189456.css.map",
+    "main.d1fb375a.js.map": "/static/js/main.d1fb375a.js.map"
   },
   "entrypoints": [
-    "static/css/main.d340c285.css",
-    "static/js/main.62fbccb1.js"
+    "static/css/main.dc189456.css",
+    "static/js/main.d1fb375a.js"
   ]
 }

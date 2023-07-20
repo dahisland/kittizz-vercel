@@ -28,7 +28,7 @@
     width: 100%;
     border-radius: 0;
     max-height: 100%;
-    padding: 1rem 0.5rem;
+    padding: 1rem 1rem;
   }
 }
 
@@ -77,14 +77,25 @@
       color: map-get($colors, mouse);
     }
     @include responsiveMini {
-      width: 68%;
+      width: 100%;
     }
   }
   label {
     color: lighten(map-get($colors, rose), 30%);
     text-align: left;
     @include responsiveMini {
+      width: 100%;
       font-size: 0.8rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
+      span {
+        text-transform: lowercase;
+        font-weight: 500;
+        font-style: italic;
+      }
     }
   }
 }
@@ -99,6 +110,9 @@
     @include flexRow;
     align-items: flex-start;
     margin-bottom: 0.3rem;
+    @include responsiveMini {
+      flex-direction: column;
+    }
   }
 }
 
